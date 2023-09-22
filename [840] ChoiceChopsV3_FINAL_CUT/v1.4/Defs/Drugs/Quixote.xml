@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="MakeableDrugBase">
+    <defName>Drug_Quixote</defName>
+    <label>Quixote</label>
+    <description>A semi-stable mixture of various chemicals that greatly improves one's combat capabilities at the cost of extreme after-effects.\n\n Originally developed by the Lupus as a combat-enhancer, this drug got its name during the 3HST-Lupus war, where Lupus fighters high on the drug launched fearless but quixotic attacks on colossal LCA-03 Greythroat class SPPDWs, just as Don Quixote charged toward the wind-mill. It's said that only the truly insane will ever take Quixote.\n\n Surprisingly non-addictive.</description>
+    <descriptionHyperlinks>
+      <HediffDef>QuixoteHigh</HediffDef>
+      <HediffDef>quixoteAftereffect</HediffDef>
+      <HediffDef>ChemicalDamageSevere</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Drug/Quixote</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.75</drawSize>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>800</WorkToMake>
+      <MarketValue>100</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <minRewardCount>5</minRewardCount>
+    <ingestible>
+      <foodType>Processed, Fluid</foodType>
+      <joyKind>Chemical</joyKind>
+      <joy>0.30</joy>
+      <baseIngestTicks>50</baseIngestTicks>
+      <nurseable>true</nurseable>
+      <drugCategory>Medical</drugCategory>
+      <ingestSound>Ingest_Inject</ingestSound>
+      <ingestHoldOffsetStanding>
+        <northDefault>
+          <offset>(0.18,0,0)</offset>
+        </northDefault>
+      </ingestHoldOffsetStanding>
+      <chairSearchRadius>0</chairSearchRadius>
+      <ingestHoldUsesTable>false</ingestHoldUsesTable>
+      <ingestCommandString>Inject {0}</ingestCommandString>
+      <ingestReportString>Injecting {0}.</ingestReportString>
+      <useEatingSpeedStat>false</useEatingSpeedStat>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>QuixoteHigh</hediffDef>
+          <severity>1</severity>
+        </li>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>QuixoteTolerance</hediffDef>
+          <severity>0.99</severity>
+          <divideByBodySize>true</divideByBodySize>
+        </li>
+        <li Class="IngestionOutcomeDoer_OffsetNeed">
+          <need>Rest</need>
+          <offset>1</offset>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <researchPrerequisite>Research_Quixote</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <soundWorking>Recipe_Drug</soundWorking>
+    </recipeMaker>
+    <costList>
+      <Neutroamine>2</Neutroamine>
+      <GoJuice>2</GoJuice>
+      <Uranium>1</Uranium>
+  </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <chemical>QuixoteChemical</chemical>
+        <listOrder>80</listOrder>
+        <isCombatEnhancingDrug>true</isCombatEnhancingDrug>
+        <overdoseSeverityOffset>0.18~0.35</overdoseSeverityOffset>
+        <largeOverdoseChance>0.05</largeOverdoseChance>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ChemicalDef>
+    <defName>QuixoteChemical</defName>
+    <label>Quixote</label>
+    <addictionHediff>GoJuiceAddiction</addictionHediff> <!-- I DO NOT TRUST YOU! IF YOU ARE ACTUALLY ADDICTIVE THIS LINE NEEDS TO GO! -->
+    <toleranceHediff>QuixoteTolerance</toleranceHediff>
+  </ChemicalDef>
+
+  <ThoughtDef>
+    <defName>QuixoteHigh</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>QuixoteHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>high on Quixote</label>
+        <description>Bullets? Blades? I fear nothing. I'm UNSTOPPABLE.</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <HediffDef>
+    <defName>QuixoteHigh</defName>
+    <label>high on Quixote</label>
+    <labelNoun>a Quixote high</labelNoun>
+    <description>Quixote in the bloodstream. Increases combat related capabilities to heights unheard of.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-2</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>after-effect kicking in</label>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>quixoteAftereffect</hediff>
+            <mtbDays>0.0001</mtbDays>
+          </li>
+        </hediffGivers>
+      </li>
+      <li>
+        <minSeverity>0.01</minSeverity>
+        <label>after-effect imminent</label>
+        <statOffsets>
+          <WorkSpeedGlobal>-0.25</WorkSpeedGlobal>
+          <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
+        </statOffsets>
+        <totalBleedFactor>0.7</totalBleedFactor>
+        <painFactor>0</painFactor>
+        <restFallFactor>0</restFallFactor>
+        <hungerRateFactorOffset>1</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.2</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.5</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.2</postFactor>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.15</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+
+      </li>
+      <li>
+        <minSeverity>0.1</minSeverity>
+        <label>fading</label>
+        <statOffsets>
+          <WorkSpeedGlobal>-0.25</WorkSpeedGlobal>
+          <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
+        </statOffsets>
+        <totalBleedFactor>0.7</totalBleedFactor>
+        <painFactor>0</painFactor>
+        <restFallFactor>0</restFallFactor>
+        <hungerRateFactorOffset>1</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.2</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.5</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.2</postFactor>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.15</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.10</offset>
+          </li>
+        </capMods>
+      </li>
+      
+      
+      <li>
+        <minSeverity>0.3</minSeverity>
+        <label>in effect</label>
+
+        <statOffsets>
+          <WorkSpeedGlobal>-0.5</WorkSpeedGlobal>
+          <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
+        </statOffsets>
+        <painFactor>0</painFactor>
+        <restFallFactor>0</restFallFactor>
+        <totalBleedFactor>0.5</totalBleedFactor>
+        <hungerRateFactorOffset>1</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.5</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>1</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.5</postFactor>
+        </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.5</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>quixoteAftereffect</defName>
+    <label>Quixote after-effect</label>
+    <labelNoun>a Quixote after-effect</labelNoun>
+    <description>After-effects of Quixote pushing the body over its limits, causing the immune system to massively over-react. This results in users presenting symptoms similar to an extreme infection, which needs frequent tending in order to stabilize the patient, otherwise the side-effects of Quixote can be lethal. Normally, these symptoms will lessen and fade in approximately 3 days.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <makesSickThought>true</makesSickThought>
+    <lethalSeverity>1</lethalSeverity>
+    <tendable>true</tendable>
+    <isBad>true</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>1</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+        <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>150000~210000</disappearsAfterTicks>
+      </li>
+      <li Class="HediffCompProperties_TendDuration">
+        <baseTendDurationHours>24</baseTendDurationHours>
+        <severityPerDayTended>-1.5</severityPerDayTended>
+      </li>
+
+    </comps>
+    <stages>
+      <li>
+        <vomitMtbDays>0.3</vomitMtbDays>
+        <restFallFactor>2</restFallFactor>
+        <hungerRateFactorOffset>1</hungerRateFactorOffset>
+        <painOffset>0.85</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.1</setMax>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <vomitMtbDays>0.3</vomitMtbDays>
+        <minSeverity>0.70</minSeverity>
+        <label>dangerous</label>
+        <restFallFactor>2</restFallFactor>
+        <hungerRateFactorOffset>1</hungerRateFactorOffset>
+        <lifeThreatening>true</lifeThreatening>
+        <painOffset>0.85</painOffset>
+        <hediffGivers>
+          <li Class="HediffGiver_RandomDrugEffect">
+            <hediff>ChemicalDamageSevere</hediff>
+            <minSeverity>0.50</minSeverity>
+            <baseMtbDays>120</baseMtbDays>
+            <partsToAffect>
+              <li>Brain</li>
+            </partsToAffect>
+          </li>
+          <li Class="HediffGiver_RandomDrugEffect">
+            <hediff>ChemicalDamageSevere</hediff>
+            <minSeverity>0.50</minSeverity>
+            <baseMtbDays>120</baseMtbDays>
+            <partsToAffect>
+              <li>Liver</li>
+            </partsToAffect>
+          </li>
+          <li Class="HediffGiver_RandomDrugEffect">
+            <hediff>ChemicalDamageSevere</hediff>
+            <minSeverity>0.50</minSeverity>
+            <baseMtbDays>120</baseMtbDays>
+            <partsToAffect>
+              <li>Heart</li>
+            </partsToAffect>
+          </li>
+          <li Class="HediffGiver_RandomDrugEffect">
+            <hediff>ChemicalDamageSevere</hediff>
+            <minSeverity>0.50</minSeverity>
+            <baseMtbDays>120</baseMtbDays>
+            <canAffectAnyLivePart>true</canAffectAnyLivePart>
+          </li>
+        </hediffGivers>
+
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <setMax>0.1</setMax>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="DrugToleranceBase">
+    <defName>QuixoteTolerance</defName>
+    <label>Quixote tolerance</label>
+    <lethalSeverity>1</lethalSeverity>
+    <description>A built-up tolerance to Quixote. The more severe this tolerance is, the more Quixote it takes to get the same effect.</description>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.2</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_DrugEffectFactor">
+        <chemical>QuixoteChemical</chemical>
+      </li>
+    </comps>
+    <hediffGivers>
+      <li Class="HediffGiver_RandomDrugEffect">
+        <hediff>Cirrhosis</hediff>
+        <minSeverity>0.50</minSeverity>
+        <baseMtbDays>60</baseMtbDays>
+        <partsToAffect>
+          <li>Liver</li>
+        </partsToAffect>
+      </li>
+      <li Class="HediffGiver_RandomDrugEffect">
+        <hediff>Carcinoma</hediff>
+        <minSeverity>0.50</minSeverity>
+        <baseMtbDays>180</baseMtbDays>
+        <partsToAffect>
+          <li>Liver</li>
+        </partsToAffect>
+      </li>
+    </hediffGivers>
+  </HediffDef>
+
+</Defs>

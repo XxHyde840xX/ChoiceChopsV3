@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+  
+  <!--ThingDefs-->
+  
+	<ThingDef Name="Thing_AmritaBase" ParentName="MakeableDrugPillBase" Abstract="True">
+		<rotatable>false</rotatable>
+		<graphicData>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.05</Mass>
+		</statBases>
+		<stackLimit>10</stackLimit>
+		<techLevel>Ultra</techLevel>
+		<minRewardCount>1</minRewardCount>
+		<ingestible>
+			<drugCategory>Medical</drugCategory>
+      <ingestCommandString>Take {0}</ingestCommandString>
+      <ingestReportString>Taking {0}.</ingestReportString>
+      <ingestSound>Ingest_Drink</ingestSound>
+		</ingestible>
+			<recipeMaker>
+				<researchPrerequisite>Amrita</researchPrerequisite>
+			<recipeUsers>
+				<li>DrugLab</li>
+			</recipeUsers>
+			<bulkRecipeCount>0</bulkRecipeCount>
+			<soundWorking>Recipe_Drug</soundWorking>
+			</recipeMaker>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>2000</listOrder>
+			</li>
+		</comps>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>RewardStandardLowFreq</li>
+		</thingSetMakerTags>
+	</ThingDef>
+
+	<ThingDef ParentName="Thing_AmritaBase">
+	<defName>Amrita</defName>
+    <label>amrita</label>
+    <description>Amrita, a pathway to everlasting life and eternal youth, now fully realized in drinkable form as a byproduct of advanced glitterworld science. \n\nThe effects of Amrita are slow and gradual, reversing the biological aging process of those who ingest it. \nRepeated dosage is required as the effects only last for 20 days.</description>
+    <descriptionHyperlinks>
+      <HediffDef>AmritaHigh</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Amrita</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+    </statBases>
+    <ingestible>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>AmritaHigh</hediffDef>
+          <severity>1.00</severity>
+        </li>
+      </outcomeDoers>
+      <ingestSound>Ingest_Drink</ingestSound>
+    </ingestible>
+    <recipeMaker>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+        <Medicine>10</Medicine>
+        <Intellectual>12</Intellectual>
+      </skillRequirements>
+      <workAmount>4800</workAmount>
+      <effectWorking>Surgery</effectWorking>
+    </recipeMaker>
+    <costList>
+      <Heart>1</Heart>
+      <Luciferium>1</Luciferium>
+      <Ambrosia>5</Ambrosia>
+      <Neutroamine>5</Neutroamine>
+      <Uranium>5</Uranium>
+    </costList>
+  </ThingDef>
+  
+  <ThingDef ParentName="Thing_AmritaBase">
+    <defName>DilutedAmrita</defName>
+    <label>diluted amrita</label>
+    <description>Amrita, a pathway to everlasting life and eternal youth, now fully realized in drinkable form as a byproduct of advanced glitterworld science.\n\nThis diluted solution of Amrita halts the biological aging process of those who ingest it. \nRepeated dosage is required as the effects only last for 20 days.</description>
+    <descriptionHyperlinks>
+      <HediffDef>AmritaLow</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>DilutedAmrita</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>450</MarketValue>
+    </statBases>
+    <ingestible>
+       <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>AmritaLow</hediffDef>
+          <severity>1.00</severity>
+        </li>
+      </outcomeDoers>
+      <ingestSound>Ingest_Drink</ingestSound>
+    </ingestible>
+    <recipeMaker>
+      <productCount>3</productCount>
+      <workAmount>600</workAmount>
+    </recipeMaker>
+    <costList>
+      <Amrita>1</Amrita>
+    </costList>
+  </ThingDef>
+  
+  <!--HediffDefs-->
+
+	<HediffDef Name="Hediff_AmritaBase" Abstract="True">
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(1,1,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.05</severityPerDay>
+				<showDaysToRecover>true</showDaysToRecover>
+			</li>
+		</comps>
+	</HediffDef>
+
+  <HediffDef ParentName="Hediff_AmritaBase">
+    <defName>AmritaHigh</defName>
+    <label>amrita</label>
+    <description>Active amrita mechanites in the body which reverse the biological aging process of those who have ingested them.</description>
+    <comps>
+      <li Class="Amrita.HediffCompProperties_ReverseAge">
+        <reversePerDay>3</reversePerDay>
+      </li>
+      <li Class="Amrita.HediffCompProperties_ExpireHediff">
+        <hediffToExpire>AmritaLow</hediffToExpire>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName="Hediff_AmritaBase">
+    <defName>AmritaLow</defName>
+    <label>amrita (Weakened)</label>
+    <description>Active amrita mechanites in the body which halt the biological aging process of those who have ingested them.</description>
+    <comps>
+      <li Class="Amrita.HediffCompProperties_ReverseAge">
+        <reversePerDay>0</reversePerDay>
+      </li>
+      <li Class="Amrita.HediffCompProperties_ExpireHediff">
+        <hediffToExpire>AmritaHigh</hediffToExpire>
+      </li>
+    </comps>
+  </HediffDef>
+	
+  <!--ResearchDefs-->
+  
+	<ResearchProjectDef>
+		<defName>Amrita</defName>
+		<label>amrita</label>
+    <description>The fundamental laws of nature and the universe itself are only dependant on how we define them. \nResearch a method to refine luciferium and other ingredients into rejuvenation serum.</description>
+		<tab>Main</tab>
+		<techLevel>Ultra</techLevel>
+		<baseCost>8000</baseCost>
+		<researchViewX>0</researchViewX>
+		<researchViewY>1</researchViewY>
+		<prerequisites>
+			<li>MedicineProduction</li>
+			<li>VitalsMonitor</li>
+			<li>Bionics</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+</Defs>

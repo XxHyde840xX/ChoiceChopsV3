@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <ThingDef ParentName="ArmorMachineableBase">
+   <defName>GS_Fall_Armor</defName>
+    <label>coastal marine armor</label>
+    <description>An advanced model of combat armor worn by marines aboard the USS Democracy, second only to the base game marine armor in protection.</description>
+    
+	
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>ReconArmor</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+	        <displayPriority>115</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Apparel/Marine/FMarine</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <generateCommonality>2</generateCommonality>
+    <tradeTags>
+      <li>HiTechArmor</li>
+      <li>Armor</li>
+    </tradeTags>
+    <statBases>
+      <WorkToMake>45000</WorkToMake>
+      <MaxHitPoints>280</MaxHitPoints>
+      <Mass>9</Mass>
+      <Flammability>0.4</Flammability>
+      <ArmorRating_Sharp>0.96</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.42</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.49</ArmorRating_Heat>
+      <Insulation_Cold>33</Insulation_Cold>
+      <Insulation_Heat>9</Insulation_Heat>
+      <EquipDelay>12</EquipDelay>
+    </statBases>
+    <thingCategories>
+      <li>ApparelArmor</li>
+    </thingCategories>
+    <costList>
+      <ComponentSpacer>3</ComponentSpacer>
+      <Plasteel>80</Plasteel>
+      <Uranium>10</Uranium>
+    </costList>
+    <apparel>
+	    <tags>
+        <li>SpacerMilitary</li>
+      </tags>
+	  
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Apparel/Marine/FMarine</wornGraphicPath>
+      <layers>
+        <li>Middle</li>
+        <li>Shell</li>
+      </layers>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+      <useDeflectMetalEffect>true</useDeflectMetalEffect>
+    </apparel>
+
+
+
+    <comps>
+      <li Class="CompProperties_Biocodable"/>
+    </comps>
+    <thingSetMakerTags>
+      <li>RewardStandardHighFreq</li>
+    </thingSetMakerTags>
+  </ThingDef>
+ 
+  
+  
+  
+  
+  
+    
+	<ThingDef ParentName="ArmorHelmetMakeableBase" >
+	  <defName>GS_Marine_Helmet</defName>
+    <label>coastal marine helmet</label>
+    <description>t</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>ReconArmor</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+	<displayPriority>110</displayPriority>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Apparel/Marine/FMarineHelmet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.3)</drawSize>
+    </graphicData>
+    <tradeTags>
+      <li>HiTechArmor</li>
+	  <li>Armor</li>
+    </tradeTags>
+    <generateCommonality>2</generateCommonality>
+    <statBases>
+      <WorkToMake>15750</WorkToMake>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Mass>1</Mass>
+      <Flammability>0.4</Flammability>
+      <ArmorRating_Sharp>0.95</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.49</ArmorRating_Heat>
+      <Insulation_Cold>4</Insulation_Cold>
+      <Insulation_Heat>2</Insulation_Heat>
+      <EquipDelay>3</EquipDelay>
+    </statBases>
+    <costList>
+      <ComponentSpacer>1</ComponentSpacer>
+      <Plasteel>30</Plasteel>
+    </costList>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Apparel/Marine/FMarineHelmet</wornGraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+      <useDeflectMetalEffect>true</useDeflectMetalEffect>
+    </apparel>
+    <comps>
+      <li Class="CompProperties_Biocodable"/>
+    </comps>
+    <thingSetMakerTags>
+      <li>RewardStandardHighFreq</li>
+    </thingSetMakerTags>
+  </ThingDef>
+
+  
+  </Defs>

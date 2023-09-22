@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+		<defName>GW_LemanRuss_Blueprint</defName>
+		<label>Leman Russ Tank</label>
+		<description>ToDo.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Driver x1, Gunner x1, Passenger x2\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+		<designationCategory>VF_Vehicles</designationCategory>
+		<graphicData>
+			<texPath>Things/Vehicles/LemanRuss/LemanRuss</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(5, 5)</drawSize>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>15000</WorkToBuild>
+			<Flammability>0.05</Flammability>
+		</statBases>
+		<size>(4, 4)</size>
+		<researchPrerequisites>
+			<li>AdvancedFabrication</li>
+		</researchPrerequisites>
+		<costList>
+			<Steel>1500</Steel>
+			<Plasteel>400</Plasteel>
+			<Chemfuel>200</Chemfuel>
+			<ComponentIndustrial>50</ComponentIndustrial>
+		</costList>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<thingToSpawn>GW_LemanRuss</thingToSpawn>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</Vehicles.VehicleBuildDef>
+
+	<Vehicles.VehicleBuildDef ParentName="VehicleBaseBuildable">
+		<defName>GW_Predator_Blueprint</defName>
+		<label>Predator Tank</label>
+		<description>ToDo.\n\n&lt;color=#bb8f04&gt;Crew:&lt;/color&gt; Driver x1, Gunner x1, Passenger x2\n&lt;color=#bb8f04&gt;Fuel type:&lt;/color&gt; Chemfuel</description>
+		<designationCategory>VF_Vehicles</designationCategory>
+		<graphicData>
+			<texPath>Things/Vehicles/Predator/Predator</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(4, 5)</drawSize>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>17500</WorkToBuild>
+			<Flammability>0.05</Flammability>
+		</statBases>
+		<size>(4, 5)</size>
+		<researchPrerequisites>
+			<li>AdvancedFabrication</li>
+		</researchPrerequisites>
+		<costList>
+			<Steel>1800</Steel>
+			<Plasteel>250</Plasteel>
+			<Chemfuel>250</Chemfuel>
+			<ComponentIndustrial>50</ComponentIndustrial>
+		</costList>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<thingToSpawn>GW_Predator</thingToSpawn>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</Vehicles.VehicleBuildDef>
+</Defs>

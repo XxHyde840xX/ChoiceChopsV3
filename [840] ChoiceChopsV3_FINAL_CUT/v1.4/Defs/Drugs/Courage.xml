@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="DrugBase">
+    <defName>Drug_Courage</defName>
+    <label>Courage</label>
+    <description>A safer, diluted form of Quixote developed by 3HST Limited as a more "conventional" combat-enhancer, compressed into pill-form to reduce bulk, slow down the release of active compounds in the bloodstream, and reduce potency. The side-effects of Courage are negligible compared to its undiluted counterpart, however, the performance of Courage also pales in comparison to that of Quixote as well.</description>
+    <descriptionHyperlinks>
+      <HediffDef>CourageStarting</HediffDef>
+      <HediffDef>CourageEffective</HediffDef>
+      <HediffDef>courageAftereffect</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Drug/Courage</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.75</drawSize>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>400</WorkToMake>
+      <MarketValue>30</MarketValue>
+      <Mass>0.01</Mass>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <minRewardCount>10</minRewardCount>
+    <ingestible>
+      <foodType>Processed</foodType>
+      <joyKind>Chemical</joyKind>
+      <joy>0.10</joy>
+      <baseIngestTicks>70</baseIngestTicks>
+      <nurseable>true</nurseable>
+      <drugCategory>Medical</drugCategory>
+      <ingestSound>Ingest_Pill</ingestSound>
+      <ingestHoldOffsetStanding>
+        <northDefault>
+          <offset>(0.18,0,0)</offset>
+        </northDefault>
+      </ingestHoldOffsetStanding>
+      <chairSearchRadius>0</chairSearchRadius>
+      <ingestHoldUsesTable>false</ingestHoldUsesTable>
+      <ingestCommandString>Take {0}</ingestCommandString>
+      <ingestReportString>Taking {0}.</ingestReportString>
+      <useEatingSpeedStat>false</useEatingSpeedStat>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>CourageStarting</hediffDef>
+          <severity>1</severity>
+        </li>
+        <li Class="IngestionOutcomeDoer_OffsetNeed">
+          <need>Rest</need>
+          <offset>1</offset>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <chemical>QuixoteChemical</chemical>
+        <listOrder>80</listOrder>
+        <isCombatEnhancingDrug>true</isCombatEnhancingDrug>
+        <overdoseSeverityOffset>0.18~0.35</overdoseSeverityOffset>
+        <largeOverdoseChance>0.015</largeOverdoseChance>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>CourageStarting</defName>
+    <label>Courage taking effect</label>
+    <description>Courage pills have been ingested and are being absorbed into the bloodstream. Approximately 1h before the effects kick in.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <initialSeverity>1</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-24</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>100%</label>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.35</ShootingAccuracyPawn>
+        </statOffsets>
+        <painFactor>0.05</painFactor>
+        <restFallFactor>0.5</restFallFactor>
+        <totalBleedFactor>0.75</totalBleedFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.35</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.6</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.2</postFactor>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.25</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.20</offset>
+          </li>
+        </capMods>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>CourageEffective</hediff>
+            <mtbDays>0.0001</mtbDays>
+          </li>
+        </hediffGivers>
+      </li>
+      <li>
+        <minSeverity>0.1</minSeverity>
+        <label>90%</label>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.35</ShootingAccuracyPawn>
+        </statOffsets>
+        <painFactor>0.05</painFactor>
+        <restFallFactor>0.5</restFallFactor>
+        <totalBleedFactor>0.75</totalBleedFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.35</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.6</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.2</postFactor>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.25</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.20</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.3</minSeverity>
+        <label>80%</label>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.3</ShootingAccuracyPawn>
+        </statOffsets>
+        <painFactor>0.1</painFactor>
+        <restFallFactor>0.6</restFallFactor>
+        <totalBleedFactor>0.8</totalBleedFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.28</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.48</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.16</postFactor>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.2</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.16</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>50%</label>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.175</ShootingAccuracyPawn>
+        </statOffsets>
+        <painFactor>0.5</painFactor>
+        <restFallFactor>0.75</restFallFactor>
+        <totalBleedFactor>0.875</totalBleedFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.175</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.3</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.1</postFactor>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.125</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.7</minSeverity>
+        <label>20%</label>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.07</ShootingAccuracyPawn>
+        </statOffsets>
+        <painFactor>0.81</painFactor>
+        <restFallFactor>0.9</restFallFactor>
+        <totalBleedFactor>0.95</totalBleedFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.07</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.12</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.04</postFactor>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.05</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.04</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.9</minSeverity>
+        <label>initial</label>
+      </li>
+
+
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>CourageEffective</defName>
+    <label>Courage in effect</label>
+    <description>Courage is in the bloodstream, boosting combat capabilities for approximately 24h.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>1</initialSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>after-effect kicking in</label>
+        <hediffGivers>
+          <li Class="HediffGiver_Random">
+            <hediff>courageAftereffect</hediff>
+            <mtbDays>0.0001</mtbDays>
+          </li>
+        </hediffGivers>
+      </li>
+      <li>
+        <minSeverity>0.01</minSeverity>
+        <label>after-effect imminent</label>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.15</ShootingAccuracyPawn>
+        </statOffsets>
+        <painFactor>0.1</painFactor>
+        <restFallFactor>0.75</restFallFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.2</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.3</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.1</postFactor>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.15</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+
+      </li>
+      <li>
+        <minSeverity>0.1</minSeverity>
+        <label>fading</label>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.15</ShootingAccuracyPawn>
+        </statOffsets>
+        <painFactor>0.1</painFactor>
+        <restFallFactor>0.75</restFallFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.2</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.3</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.1</postFactor>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.15</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+
+      </li>
+
+
+      <li>
+        <minSeverity>0.3</minSeverity>
+        <label>in effect</label>
+        <statOffsets>
+          <ShootingAccuracyPawn>0.35</ShootingAccuracyPawn>
+        </statOffsets>
+        <painFactor>0.05</painFactor>
+        <restFallFactor>0.5</restFallFactor>
+        <totalBleedFactor>0.75</totalBleedFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>0.35</offset>
+          </li>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>0.6</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>1.2</postFactor>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.25</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.20</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>courageAftereffect</defName>
+    <label>Courage after-effect</label>
+    <labelNoun>a Courage after-effect</labelNoun>
+    <description>After-effects of Courage pushing the body over its limits, causing the immune system to over-react. This results in users presenting symptoms similar to a minor infection and food-poisoning. Normally, these symptoms will lessen and fade within 24h.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <makesSickThought>true</makesSickThought>
+    <isBad>true</isBad>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>42000~90000</disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <vomitMtbDays>0.7</vomitMtbDays>
+        <restFallFactor>1.5</restFallFactor>
+        <hungerRateFactorOffset>0.3</hungerRateFactorOffset>
+        <painOffset>0.4</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <postFactor>0.8</postFactor>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>0.8</postFactor>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <postFactor>0.9</postFactor>
+          </li>
+          <li>
+            <capacity>BloodFiltration</capacity>
+            <postFactor>0.85</postFactor>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>CourageHigh</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>CourageEffective</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>high on Courage</label>
+        <description>No worries! Nothing can kill me. Even if they try, I'll take 'em out before they get the chance.</description>
+        <baseMoodEffect>7</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+
+  <RecipeDef ParentName="MakeStoneBlocksBase">
+    <defName>MakeCourage</defName>
+    <label>Synthesize Courage x5</label>
+    <description>Dilute and compress Quixote into Courage pills.</description>
+    <jobString>Synthesizing Courage</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Neutroamine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Drug_Quixote</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Drug_Quixote</li>
+        <li>Neutroamine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <workAmount>800</workAmount>
+    <workSkill>Intellectual</workSkill>
+    <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Drug</soundWorking>
+    <recipeUsers Inherit="false">
+      <li>DrugLab</li>
+    </recipeUsers>
+    <skillRequirements>
+      <Intellectual>4</Intellectual>
+    </skillRequirements>
+    <products>
+      <Drug_Courage>5</Drug_Courage>
+    </products>
+    <researchPrerequisite>Research_Quixote</researchPrerequisite>
+
+  </RecipeDef>
+
+  <RecipeDef ParentName="MakeStoneBlocksBase">
+    <defName>MakeCourageBulk</defName>
+    <label>Synthesize Courage x20</label>
+    <description>Dilute and compress Quixote into Courage pills.</description>
+    <jobString>Synthesizing Courage</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Neutroamine</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Drug_Quixote</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Drug_Quixote</li>
+        <li>Neutroamine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <workAmount>3200</workAmount>
+    <workSkill>Intellectual</workSkill>
+    <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Drug</soundWorking>
+    <recipeUsers Inherit="false">
+      <li>DrugLab</li>
+    </recipeUsers>
+    <skillRequirements>
+      <Intellectual>4</Intellectual>
+    </skillRequirements>
+    <products>
+      <Drug_Courage>20</Drug_Courage>
+    </products>
+    <researchPrerequisite>Research_Quixote</researchPrerequisite>
+  </RecipeDef>
+
+</Defs>
