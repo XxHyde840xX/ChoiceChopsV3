@@ -121,7 +121,7 @@
 			<ShootingAccuracyPawn>0.1</ShootingAccuracyPawn>
 			<AimingDelayFactor>-0.1</AimingDelayFactor>
 			<PawnTrapSpringChance>-0.1</PawnTrapSpringChance>
-			<ToxicEnvironmentalResistance>0.90</ToxicEnvironmentalResistance>
+			<ToxicEnvironmentResistance>0.90</ToxicEnvironmentResistance>
 		</equippedStatOffsets>
 		<costList>
 			<ComponentSpacer>1</ComponentSpacer>

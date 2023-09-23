@@ -280,6 +280,21 @@
 			</li>
 		</motes>
 	</Vehicles.VehicleTurretDef>
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>HP_Bullet_HeavyBolter</defName>
+		<label>Bolter Round</label>
+		<graphicData>
+			<texPath>Things/Projectiles/Bolter_Projectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>20</damageAmountBase>
+			<stoppingPower>1</stoppingPower>
+			<speed>50</speed>
+		</projectile>
+	</ThingDef>
 
 	<Vehicles.VehicleTurretDef ParentName="VehicleTurretBase">
 		<defName>GW_Predator_HeavyBolter</defName>

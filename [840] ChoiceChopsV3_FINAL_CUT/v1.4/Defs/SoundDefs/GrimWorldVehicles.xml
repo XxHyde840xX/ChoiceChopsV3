@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	
+	<SoundDef>
+		<defName>HP_Heavy_Bolt_Gun_Sound</defName>
+		<context>MapOnly</context>
+		<eventNames />  
+		<maxSimultaneous>10</maxSimultaneous>  
+        <subSounds>
+          <li>
+            <grains>
+              <li Class="AudioGrain_Folder">
+                <clipPath>Weapons/Boltgun</clipPath>
+              </li>
+            </grains>      
+            <volumeRange>40~40</volumeRange>      
+          </li>
+        </subSounds>
+	</SoundDef>
+	
+</Defs>
