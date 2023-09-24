@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+   <!-- ============================================== -->
+
+  <SoundDef>
+    <defName>840shot_levi</defName>  
+    <context>MapOnly</context>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>shot_levi</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>66.70111~79.30627</volumeRange>      
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>840Interact_levi</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Interact_levi</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>55~60</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <!-- ============================================== -->
+
+  <SoundDef>
+    <defName>840shot_mida</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>shot_mida</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>40.58823~40.58823</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+   <SoundDef>
+    <defName>840Interact_mida</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Interact_mida</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>40~40</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>

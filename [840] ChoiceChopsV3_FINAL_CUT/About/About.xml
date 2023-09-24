@@ -10,7 +10,7 @@
 	
 	- That's right folks, we've got MOAR TANKS BAYBEE! And I'm doing the heavy lifting to yeet a whole-ass framework out of the mix.
 	- What I've done here is switched Research Prerequisites to Advanced Fabrication, and replaced references and build-costs where needed.
-	- Nothing else really of note changed aside from the fact that you don't need the Core Imperialis mod to use these anymore. It was silly.
+	- I've fixed the missing projectile sound, def, and texture too, and the bonus is you don't need the Core Imperialis mod to use these anymore!
 	- I plan to keep this all updated with any changes, fixes, and additions that happen to GrimWorld 40,000 Vehicles in the future.
 	- Super incompatible with the original mod, which can be found here: https://steamcommunity.com/sharedfiles/filedetails/?id=3026724919.
 	
@@ -31,7 +31,7 @@
 	- Gotta toss one of my continuations into the mix here, and this one was an absolute pleasure to be able to put up on the Steam workshop.
 	- There isn't much Gundam or mecha stuff on the workshop, and this WarCasket is an absolute beauty, brought forward from v1.3 of RimWorld.
 	- The earlier version worked fine on v1.4 but I wanted to add some extra "oomph" for the contunuation so you're getting more bang for your buck.
-	- I've increased the movement speed to +1.0c/s total with all 4 pieces equipped, and made it completely toxic resistant if you wear the whole set.
+	- I've increased the movement speed to +1.0c/s total with all 3 pieces equipped, and made it completely toxic resistant if you wear the whole set.
 	- Woefully incompatible with the original mod and mine, which can be found at: https://steamcommunity.com/sharedfiles/filedetails/?id=3038452790.
 	
 ==================================================
@@ -83,6 +83,15 @@
 	- Stats are comparable to marine armor from the Empire, but you'll get some extras with this one such as better insulation and some fun offsets.
 	- SHOCKINGLY NOT INCOMPATIBLE WITH ANYTHING! Mods I've used for assets can be found by following the links below, make sure to check 'em out!
 	- Assets Used: https://steamcommunity.com/sharedfiles/filedetails/?id=2469449551 / https://steamcommunity.com/sharedfiles/filedetails/?id=3039182551.
+	
+==================================================
+
+[Leviathan's Breath Compound Bow and The MIDA Rifle]
+	- So your boi found a Destiny 2 mod with a whole lot of awesome content locked behind a silly engram farming system...SO I CHOPPED SOME STUFF!
+	- You're getting the Leviathan's Breath and the MIDA, complete with more vibrant colors, and a very slight buff to their stats. New defs too!
+	- Did I mention they're both craftable now too? All you need is Advanced Fabrication and you've got some badass new toys to play with.
+	- I've even made a custom MIDA projectile, and tweaked the Leviathan projectile with assets made available for use. Credit goes to Arxian for those.
+	- UNBELIEVABLY COMPATIBLE! You can find the mod I grabbed these from here: https://steamcommunity.com/sharedfiles/filedetails/?id=2702299840.
 	
 =============================================================================================================================
 
